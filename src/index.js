@@ -1,6 +1,6 @@
 import "./style.css";
-import menu from "./menu";
-import contact from "./contactUs";
+import menu from "./menu.js";
+import contact from "./contactUs.js";
 
 function nav() {
   // create navbar
@@ -14,6 +14,7 @@ function nav() {
   const menu = document.createElement("div");
   menu.textContent = "Menu";
   menu.setAttribute("class", "tab");
+  menu.setAttribute("id", "menu");
   const contact = document.createElement("div");
   contact.textContent = "Contact us";
   contact.setAttribute("class", "tab");
@@ -28,7 +29,7 @@ function nav() {
 // creates home tab
 function homeTab() {
   const background = document.createElement("div");
-  background.setAttribute("id", "menu-block");
+  background.setAttribute("id", "home-block");
   background.setAttribute("class", "block");
 
   const headings = document.createElement("div");
@@ -76,6 +77,7 @@ function homeListen() {
   const home = document.querySelector("#home");
   home.addEventListener("click", (e) => {
     e.target.setAttribute("style", "border-bottom: 2px solid #b5986d");
+    document.querySelector("#menu").setAttribute("style", "border: none");
     document
       .querySelector("#content")
       .removeChild(document.querySelector(".block"));
@@ -83,4 +85,17 @@ function homeListen() {
   });
 }
 
+function menuListen() {
+  const menu = document.querySelector("#menu");
+  menu.addEventListener("click", (e) => {
+    e.target.setAttribute("style", "border-bottom: 2px solid #b5986d");
+    document.querySelector("#home").setAttribute("style", "border: none");
+    document
+      .querySelector("#content")
+      .removeChild(document.querySelector(".block"));
+    document.querySelector("#content").appendChild(menu());
+  });
+}
+
 homeListen();
+menuListen();
