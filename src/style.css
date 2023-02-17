@@ -1,2 +1,26 @@
-.hello {
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background: url(../src/img/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#navbar {
+  font-family: "Merriweather", sans-serif;
+  width: 60vw;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.tab {
+  color: white;
 }

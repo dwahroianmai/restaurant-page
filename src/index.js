@@ -1,12 +1,25 @@
 import "./style.css";
 
-function component() {
-  const element = document.createElement("div");
+function nav() {
+  // create navbar
+  const navbar = document.createElement("div");
+  navbar.setAttribute("id", "navbar");
+  // create tabs
+  const home = document.createElement("div");
+  home.textContent = "Home";
+  home.setAttribute("class", "tab");
+  const menu = document.createElement("div");
+  menu.textContent = "Menu";
+  menu.setAttribute("class", "tab");
+  const contact = document.createElement("div");
+  contact.textContent = "Contact us";
+  contact.setAttribute("class", "tab");
 
-  // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = _.join(["Hello", "webpack"], " ");
+  navbar.appendChild(home);
+  navbar.appendChild(menu);
+  navbar.appendChild(contact);
 
-  return element;
+  return navbar;
 }
 
-document.body.appendChild(component());
+document.querySelector("#content").appendChild(nav());
