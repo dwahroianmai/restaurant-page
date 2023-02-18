@@ -1,3 +1,5 @@
+import contactTab from "./contactUs";
+
 // creates home tab
 function homeTab() {
   const background = document.createElement("div");
@@ -16,6 +18,18 @@ function homeTab() {
 
   const book = document.createElement("button");
   book.setAttribute("id", "book");
+  book.addEventListener("click", () => {
+    console.log("works");
+    document
+      .querySelector("#content")
+      .removeChild(document.querySelector("#home-block"));
+    document.querySelector("#content").appendChild(contactTab());
+    document.querySelector("#home").setAttribute("style", "border: none");
+    document.querySelector("#menu").setAttribute("style", "border: none");
+    document
+      .querySelector("#contact")
+      .setAttribute("style", "border-bottom: 2px solid #b5986d");
+  });
 
   description.textContent =
     "Lorem ipsum dolor sit amet, \

@@ -53,11 +53,6 @@ function contactListen() {
     .addEventListener("click", (e) =>
       listener(e, "#home", "#menu", contactTab())
     );
-  document
-    .querySelector("#book")
-    .addEventListener("click", (e) =>
-      listener(e, "#home", "#menu", contactTab())
-    );
 }
 
 function listener(e, none1, none2, func) {
