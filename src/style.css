@@ -87,3 +87,28 @@ body {
   color: white;
   background-color: #b5986d;
 }
+
+#menu-block {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  background-color: white;
+  padding: 20px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 22px;
+}
+
+.dish {
+  padding: 10px;
+  border: 2px solid #b5986d;
+}
+
+img {
+  width: auto;
+  height: 400px;
+}

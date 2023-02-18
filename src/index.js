@@ -1,6 +1,6 @@
 import "./style.css";
 import homeTab from "./home";
-import menu from "./menu";
+import menuTab from "./menu";
 import contactTab from "./contactUs.js";
 
 function nav() {
@@ -42,12 +42,22 @@ function homeListen() {
 function menuListen() {
   document
     .querySelector("#menu")
-    .addEventListener("click", (e) => listener(e, "#home", "#contact", menu()));
+    .addEventListener("click", (e) =>
+      listener(e, "#home", "#contact", menuTab())
+    );
 }
 
 function contactListen() {
   document
     .querySelector("#contact")
+    .addEventListener("click", (e) =>
+      listener(e, "#home", "#menu", contactTab())
+    );
+}
+
+function reserveListen() {
+  document
+    .querySelector("#book")
     .addEventListener("click", (e) =>
       listener(e, "#home", "#menu", contactTab())
     );
@@ -66,3 +76,4 @@ function listener(e, none1, none2, func) {
 homeListen();
 menuListen();
 contactListen();
+reserveListen();
