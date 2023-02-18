@@ -1,6 +1,7 @@
 import "./style.css";
+import homeTab from "./home";
 import menu from "./menu";
-import contact from "./contactUs.js";
+import contactTab from "./contactUs.js";
 
 function nav() {
   // create navbar
@@ -27,76 +28,41 @@ function createTab(text, clas, id) {
   return tab;
 }
 
-// creates home tab
-function homeTab() {
-  const background = document.createElement("div");
-  background.setAttribute("id", "home-block");
-  background.setAttribute("class", "block");
-
-  const headings = document.createElement("div");
-  headings.setAttribute("id", "hs");
-
-  const heading = document.createElement("h2");
-  const heading1 = document.createElement("h2");
-  const heading2 = document.createElement("h2");
-
-  const description = document.createElement("p");
-  description.setAttribute("id", "desc");
-
-  const book = document.createElement("button");
-  book.setAttribute("id", "book");
-
-  description.textContent =
-    "Lorem ipsum dolor sit amet, \
-    consectetur adipiscing elit. \
-    Donec eget dolor in felis lobortis \
-    gravida et et leo. Nullam sed \
-    tristique nisi. Nunc sapien tortor, \
-    accumsan a fermentum sed, pharetra at ante.";
-
-  heading.textContent = "True ingredients";
-  heading1.textContent = "True flavors";
-  heading2.textContent = "True passion";
-
-  book.textContent = "Make a reservation";
-
-  headings.appendChild(heading);
-  headings.appendChild(heading1);
-  headings.appendChild(heading2);
-
-  background.appendChild(headings);
-  background.appendChild(description);
-  background.appendChild(book);
-
-  return background;
-}
-
 document.querySelector("#content").appendChild(nav());
 document.querySelector("#content").appendChild(homeTab());
 
 function homeListen() {
-  const home = document.querySelector("#home");
-  home.addEventListener("click", (e) => {
-    e.target.setAttribute("style", "border-bottom: 2px solid #b5986d");
-    document.querySelector("#menu").setAttribute("style", "border: none");
-    document
-      .querySelector("#content")
-      .removeChild(document.querySelector(".block"));
-    document.querySelector("#content").appendChild(homeTab());
-  });
+  document
+    .querySelector("#home")
+    .addEventListener("click", (e) =>
+      listener(e, "#menu", "#contact", homeTab())
+    );
 }
 
 function menuListen() {
-  const menu = document.querySelector("#menu");
-  menu.addEventListener("click", (e) => {
-    e.target.setAttribute("style", "border-bottom: 2px solid #b5986d");
-    document.querySelector("#home").setAttribute("style", "border: none");
-    document
-      .querySelector("#content")
-      .removeChild(document.querySelector(".block"));
-    document.querySelector("#content").appendChild(menu());
-  });
+  document
+    .querySelector("#menu")
+    .addEventListener("click", (e) => listener(e, "#home", "#contact", menu()));
+}
+
+function contactListen() {
+  document
+    .querySelector("#contact")
+    .addEventListener("click", (e) =>
+      listener(e, "#home", "#menu", contactTab())
+    );
+}
+
+function listener(e, none1, none2, func) {
+  e.target.setAttribute("style", "border-bottom: 2px solid #b5986d");
+  document.querySelector(none1).setAttribute("style", "border: none");
+  document.querySelector(none2).setAttribute("style", "border: none");
+  document
+    .querySelector("#content")
+    .removeChild(document.querySelector(".block"));
+  document.querySelector("#content").appendChild(func);
 }
 
 homeListen();
 menuListen();
+contactListen();
