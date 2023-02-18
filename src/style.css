@@ -95,6 +95,7 @@ body {
   column-gap: 20px;
   background-color: white;
   padding: 20px;
+  box-shadow: 50px 50px #b5986d;
 }
 
 .info {
